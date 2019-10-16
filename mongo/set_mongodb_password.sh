@@ -27,7 +27,7 @@ sleep 3
 # If we've defined the MONGODB_APPLICATION_DATABASE environment variable and it's a different database
 # than admin, then create the user for that database.
 # First it authenticates to Mongo using the admin user it created above.
-# Then it switches to the REST API database and runs the createUser command 
+# Then it switches to the REST API database and runs the createUser command
 # to actually create the user and assign it to the database.
 if [ "$MONGODB_APPLICATION_DATABASE" != "admin" ]; then
     echo "=> Creating a ${MONGODB_APPLICATION_DATABASE} database user with a password in MongoDB"
@@ -44,4 +44,4 @@ sleep 1
 # users if we're recreating the container (provided we're using some persistent storage)
 touch /data/db/.mongodb_password_set
 
-echo "MongoDB configured successfully. You may now connect to the DB."
+echo "MongoDB configured successfully. You may now connect to the DB."$(mongod --version)

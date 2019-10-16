@@ -8,6 +8,8 @@ if [ "$AUTH" == "yes" ]; then
     cmd="$cmd --auth"
 fi
 
+cmd="$cmd --bind_ip_all"
+
 $cmd &
 
 if [ ! -f /data/db/.mongodb_password_set ]; then

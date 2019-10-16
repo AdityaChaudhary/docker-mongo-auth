@@ -1,0 +1,15 @@
+version: '3.7' # specify docker-compose version
+
+services:
+  mongo:
+    container_name: 'mongo-db'
+    build: mongo
+    environment:
+      - AUTH=yes
+      - MONGODB_ADMIN_USER=admin
+      - MONGODB_ADMIN_PASS=admin123
+      - MONGODB_APPLICATION_DATABASE=sample
+      - MONGODB_APPLICATION_USER=aashrey
+      - MONGODB_APPLICATION_PASS=admin123
+    ports:
+      - "27017:27017"
